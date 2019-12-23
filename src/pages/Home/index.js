@@ -24,6 +24,7 @@ import { ProductList } from './styles';
   }
 
   handleAddProduct = product => {
+    // transmite as ações ao redux
     const {dispatch} = this.props;
 
     dispatch({
