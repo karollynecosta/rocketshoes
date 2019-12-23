@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {darken} from 'polished';
 
 export const Container = styled.div`
   padding: 30px;
@@ -18,6 +19,11 @@ export const Container = styled.div`
       border-radius: 4px;
       padding: 12px 20px;
       font-weight: bold;
+      text-transform: uppercase;
+
+      &:hover {
+        background: ${darken(0.3, '#7159c1')}
+      }
     }
   }
 `;
@@ -73,4 +79,17 @@ button {
 
 `;
 
-export const Total = styled.div``;
+export const Total = styled.div`
+  display: flex;
+  align-items: baseline;
+
+  span {
+    color: #999;
+    font-weight: bold;
+  }
+
+  strong {
+    font-size: 28px;
+    margin-left: 5px;
+  }
+`;
