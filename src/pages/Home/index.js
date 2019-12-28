@@ -27,15 +27,16 @@ import { ProductList } from './styles';
     this.setState({ products: data});
   }
 
-  handleAddProduct = product => {
+  handleAddProduct = id => {
     // transmite as ações ao redux
-    const { addToCart } = this.props;
+    const { addToCartRequest } = this.props;
 
-   addToCart(product);
+   addToCartRequest(id);
   };
 
   render(){
     const {products} = this.state;
+    const {amount} = this.props;
 
     return (
    <ProductList>
@@ -49,9 +50,9 @@ import { ProductList } from './styles';
         <span>{product.priceFormatted}</span>
 
         <button type="button"
-        onClick={() => this.handleAddProduct(product)}>
+        onClick={() => this.handleAddProduct(product.id)}>
         <div>
-          <MdAddShoppingCart size={16} color="#fff"/>
+          <MdAddShoppingCart size={16} color="#fff"/>{amount[product.id] || 0}
         </div>
 
         <span>ADICIONAR AO CARRINHO</span>
@@ -64,8 +65,17 @@ import { ProductList } from './styles';
   }
 }
 
+const mapStateToProps = state => ({
+  // quantidade do produto
+  amount: state.cart.reduce((amount, product) => {
+    amount[product.id] = product.amount;
+
+    return amount;
+  }, {})
+});
+
 // converte actions em propriedades do componente
 const mapDispatchToProps = dispatch =>
   bindActionCreators(CartActions, dispatch);
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
