@@ -42,8 +42,8 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
             <tr>
               <td>
                 <img
-            src={product.image}
-            alt={product.title}
+                  src={product.image}
+                  alt={product.title}
                 />
               </td>
             <td>
@@ -51,8 +51,9 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
               <span>{product.priceFormatted}</span>
             </td>
 
-            <div>
+
             <td>
+            <div>
               <button type='button' onClick={() => decrement(product)}>
                 <MdRemoveCircleOutline size={20} color="#7159c1" />
               </button>
@@ -60,8 +61,9 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
               <button type='button' onClick={() => increment(product)}>
                 <MdAddCircleOutline size={20} color="#7159c1" />
               </button>
+              </div>
             </td>
-            </div>
+
 
             <td>
             <strong>{product.subtotal}</strong>
@@ -78,8 +80,6 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
           </tr>
         ))}
         </tbody>
-
-
       </ProductTable>
 
       <footer>
