@@ -10,4 +10,8 @@ Principais ferramentas utilizadas:
   - History para navegação;
   - React hooks
 
+Para inicializar este projeto os comandos básicos são:
+ - Json server: json-server server.json -p 3333
+ - Yarn: yarn react-sripts start
+
   <img src='.\src\assets\images\read.jpg' alt='Home'>
