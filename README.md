@@ -8,5 +8,6 @@ Principais ferramentas utilizadas:
   - React Toastify para notificações ao cliente sobre estoque;
   - Saga;
   - History para navegação;
+  - React hooks
 
   <img src='.\src\assets\images\read.jpg' alt='Home'>
